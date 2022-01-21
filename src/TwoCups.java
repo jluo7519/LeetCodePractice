@@ -3,7 +3,7 @@ import java.util.*;
 public class TwoCups {
     public static void main(String args[]) {
         TwoCups test = new TwoCups();
-        System.out.println(test.twoCups(5,3,4));
+        System.out.println(test.twoCups(5,2,4));
     }
     //Q: given two cups of different size, can you measure n units of water? return min steps, if impossible return -1
     public int twoCups(int big, int small, int target) {
@@ -20,6 +20,7 @@ public class TwoCups {
                 int[] cur = queue.poll();
                 List<int[]> nexts = convert(cur, big, small);
                 for (int[] next : nexts) {
+                    //这步如果面试需要clarify怎么样算出结果，是在一个杯子里就算 还是可以装在两个杯子也算
                     if (next[0] == target || next[1] == target || next[0] + next[1] == target) {
                         return minSteps + 1;
                     }
@@ -40,7 +41,7 @@ public class TwoCups {
         nexts.add(new int[] {0, cur[1]});
         //3. transfer from one to two
         if (cur[1] == two) { //cup two is full倒不进不倒了
-            nexts.add(new int[] {cur[0], cur[1]});
+            //nexts.add(new int[] {cur[0], cur[1]});
         } else if (cur[0] + cur[1] < two) { //one can't fill two'
             nexts.add(new int[] {0, cur[0] + cur[1]});
         } else { //fill two with one
@@ -52,7 +53,7 @@ public class TwoCups {
         nexts.add(new int[] {cur[0], 0});
         //6. transfer from two to one
         if (cur[0] == one) { //one is full
-            nexts.add(new int[] {cur[0], cur[1]});
+            //nexts.add(new int[] {cur[0], cur[1]});
         } else if (cur[0] + cur[1] < one) { // can't fill one with two
             nexts.add(new int[] {cur[0] + cur[1], 0});
         } else { // fill one with two
