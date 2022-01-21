@@ -19,7 +19,6 @@ public class LC00301 {
         String s4 = "(j))(";
         System.out.println(Arrays.toString(test.findRemove(s4)));
         System.out.println(test.removeInvalidParentheses(s4));
-
     }
     public List<String> removeInvalidParentheses(String s) {
         if (s == null || s.length() == 0) throw new IllegalArgumentException();
@@ -50,17 +49,15 @@ public class LC00301 {
             path.setLength(pathLen);
         }
         if (c == '(') {
-            if (rmLeft > 0) {
-                dfs(result, path, index + 1, rmLeft - 1, rmRight, s, delta);
-            }
+            //remove
+            dfs(result, path, index + 1, rmLeft - 1, rmRight, s, delta);
             //not remove
             path.append('(');
             dfs(result, path, index + 1, rmLeft, rmRight, s, delta + 1);
             path.setLength(pathLen);
         } else if (c == ')') {
-            if (rmRight > 0) {
-                dfs(result, path, index + 1, rmLeft, rmRight - 1, s, delta);
-            }
+            //not remove
+            dfs(result, path, index + 1, rmLeft, rmRight - 1, s, delta);
             //not remove
             path.append(')');
             dfs(result, path, index + 1, rmLeft, rmRight, s, delta - 1);
