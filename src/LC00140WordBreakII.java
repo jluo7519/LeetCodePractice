@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class LC00140 {
+public class LC00140WordBreakII {
 
     //without memo
     public List<String> wordBreakNoMemo(String s, List<String> wordDict) {

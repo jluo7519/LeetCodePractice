@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class LC00022 {
+public class LC00022GenerateParentheses {
     public static void main(String args[]) {
-        LC00022 test = new LC00022();
+        LC00022GenerateParentheses test = new LC00022GenerateParentheses();
         System.out.println(test.generateParenthesis(3).toString());
     }
 

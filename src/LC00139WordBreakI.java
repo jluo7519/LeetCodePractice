@@ -3,10 +3,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class LC00139 {
+public class LC00139WordBreakI {
 
     public static void main(String args[]) {
-        LC00139 test = new LC00139();
+        LC00139WordBreakI test = new LC00139WordBreakI();
         String s = "leetcode";
 
         String[] wordsArr = {"leet","code"};

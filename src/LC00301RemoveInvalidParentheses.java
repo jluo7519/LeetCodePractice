@@ -1,8 +1,8 @@
 import java.util.*;
 
-public class LC00301 {
+public class LC00301RemoveInvalidParentheses {
     public static void main(String args[]) {
-        LC00301 test = new LC00301();
+        LC00301RemoveInvalidParentheses test = new LC00301RemoveInvalidParentheses();
         String s1 = "()())()";
         String s2 = "(a)())()";
         String s3 = ")(";
@@ -26,10 +26,10 @@ public class LC00301 {
         int[] rm = findRemove(s);
         int rmLeft = rm[0];
         int rmRight = rm[1];
-        dfs(result, new StringBuilder(), 0, rmLeft, rmRight, s, 0);
+        dfsSetDedup(result, new StringBuilder(), 0, rmLeft, rmRight, s, 0);
         return new ArrayList<>(result);
     }
-    private void dfs(Set<String> result, StringBuilder path, int index, int rmLeft, int rmRight, String s, int delta) {
+    private void dfsSetDedup(Set<String> result, StringBuilder path, int index, int rmLeft, int rmRight, String s, int delta) {
         int len = s.length();
         //success
         if (index == len && rmLeft == 0 && rmRight == 0 && delta == 0) {
@@ -45,22 +45,22 @@ public class LC00301 {
         //other chars
         if (c != '(' && c != ')') {
             path.append(c);
-            dfs(result, path, index + 1, rmLeft, rmRight, s, delta);
+            dfsSetDedup(result, path, index + 1, rmLeft, rmRight, s, delta);
             path.setLength(pathLen);
         }
         if (c == '(') {
             //remove
-            dfs(result, path, index + 1, rmLeft - 1, rmRight, s, delta);
+            dfsSetDedup(result, path, index + 1, rmLeft - 1, rmRight, s, delta);
             //not remove
             path.append('(');
-            dfs(result, path, index + 1, rmLeft, rmRight, s, delta + 1);
+            dfsSetDedup(result, path, index + 1, rmLeft, rmRight, s, delta + 1);
             path.setLength(pathLen);
         } else if (c == ')') {
             //not remove
-            dfs(result, path, index + 1, rmLeft, rmRight - 1, s, delta);
+            dfsSetDedup(result, path, index + 1, rmLeft, rmRight - 1, s, delta);
             //not remove
             path.append(')');
-            dfs(result, path, index + 1, rmLeft, rmRight, s, delta - 1);
+            dfsSetDedup(result, path, index + 1, rmLeft, rmRight, s, delta - 1);
             path.setLength(pathLen);
         }
     }

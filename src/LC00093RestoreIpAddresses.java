@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class LC00093 {
+public class LC00093RestoreIpAddresses {
     public static void main(String args[]) {
-        LC00093 test = new LC00093();
+        LC00093RestoreIpAddresses test = new LC00093RestoreIpAddresses();
         String s1 = "25525511135";
         System.out.println(test.restoreIpAddresses(s1).toString());
         String s2 = "0000";

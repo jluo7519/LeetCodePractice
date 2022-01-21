@@ -1,9 +1,9 @@
 import java.util.Stack;
 
-public class LC00032 {
+public class LC00032LongestValidParentheses {
     public static void main(String args[]) {
         String s = "()(()";
-        LC00032 test = new LC00032();
+        LC00032LongestValidParentheses test = new LC00032LongestValidParentheses();
         System.out.println(test.longestValidParentheses1(s));
 
     }

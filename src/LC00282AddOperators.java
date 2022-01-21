@@ -3,11 +3,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class LC00282 {
+public class LC00282AddOperators {
     LC00227BasicCalculatorII calculator = new LC00227BasicCalculatorII();
 
     public static void main(String args[]) {
-        LC00282 test = new LC00282();
+        LC00282AddOperators test = new LC00282AddOperators();
         System.out.println(test.addOperators("123", 6));
         System.out.println(test.addOperators("232", 8));
         System.out.println(test.addOperators("3456237490", 9191));

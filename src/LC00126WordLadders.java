@@ -1,8 +1,8 @@
 import java.util.*;
 
-class LC00126 {
+class LC00126WordLadders {
     public static void main(String args[]) {
-        LC00126 test = new LC00126();
+        LC00126WordLadders test = new LC00126WordLadders();
 
         String beginWord = "a";
         String endWord = "c";
