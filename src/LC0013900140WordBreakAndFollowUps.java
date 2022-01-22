@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class WordBreakMinCuts {
+public class LC0013900140WordBreakAndFollowUps {
     static final int UNCUTTABLE = Integer.MAX_VALUE;
     public static void main(String args[]) {
-        WordBreakMinCuts test = new WordBreakMinCuts();
+        LC0013900140WordBreakAndFollowUps test = new LC0013900140WordBreakAndFollowUps();
         //test 1
         String s1 = "leetcode";
         Set<String> dict1 = new HashSet<>();
@@ -141,7 +141,6 @@ public class WordBreakMinCuts {
         return result;
     }
     private void recoverII(Map<Integer, List<Integer>> edges, String s, List<List<String>> result, List<String> path, int cur) {
-
         if (cur == 0) {
             result.add(new LinkedList<>(path));
             return;
