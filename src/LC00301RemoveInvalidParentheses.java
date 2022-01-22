@@ -22,12 +22,59 @@ public class LC00301RemoveInvalidParentheses {
     }
     public List<String> removeInvalidParentheses(String s) {
         if (s == null || s.length() == 0) throw new IllegalArgumentException();
-        Set<String> result = new HashSet<>();
+        //Set<String> result = new HashSet<>();
+        List<String> result = new ArrayList<>();
         int[] rm = findRemove(s);
         int rmLeft = rm[0];
         int rmRight = rm[1];
-        dfsSetDedup(result, new StringBuilder(), 0, rmLeft, rmRight, s, 0);
-        return new ArrayList<>(result);
+        dfsWithDedup(result, new StringBuilder(), 0, rmLeft, rmRight, s, 0);
+        //return new ArrayList<>(result);
+        return result;
+    }
+    private void dfsWithDedup(List<String> result, StringBuilder sb, int index, int rmLeft, int rmRight, String s, int delta) {
+        int len = s.length();
+        //success
+        if (index == len && rmLeft == 0 && rmRight == 0 && delta == 0) {
+            result.add(sb.toString());
+        }
+        //failure
+        if (index >= len || rmLeft < 0 || rmRight < 0 || delta < 0) {
+            return;
+        }
+        //no visited it runs on a tree
+        char c = s.charAt(index);
+        int sbLen = sb.length();
+        //3 cases, either ( or ) or neither
+        if (c != '(' && c != ')') {
+            //need to keep, can only not to remove
+            sb.append(c);
+            dfsWithDedup(result, sb, index + 1, rmLeft, rmRight, s, delta);
+            sb.setLength(sbLen);
+        } else if (c == '(') {
+            //either remove or not remove
+            //1. remove
+            dfsWithDedup(result, sb, index + 1, rmLeft - 1, rmRight, s, delta);
+            //2. keep
+            //if there are k consective (, and we keep them all
+            int cntLeft = 1;
+            while (index + cntLeft < len && s.charAt(index + cntLeft) == '(') {
+                cntLeft++;
+            }
+            sb.append(s.substring(index, index + cntLeft));
+            dfsWithDedup(result, sb, index + cntLeft, rmLeft, rmRight, s,delta + cntLeft);
+            sb.setLength(sbLen);
+        } else { //)
+            //1. remove
+            dfsWithDedup(result, sb, index + 1, rmLeft, rmRight - 1, s, delta);
+            //2. not remove
+            int cntRight = 1;
+            while (index + cntRight < len && s.charAt(index + cntRight) == ')') {
+                cntRight++;
+            }
+            sb.append(s.substring(index, index + cntRight));
+            dfsWithDedup(result, sb, index + cntRight, rmLeft, rmRight, s,delta - cntRight);
+            sb.setLength(sbLen);
+        }
     }
     private void dfsSetDedup(Set<String> result, StringBuilder path, int index, int rmLeft, int rmRight, String s, int delta) {
         int len = s.length();
