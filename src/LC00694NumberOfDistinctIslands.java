@@ -40,8 +40,8 @@ public class LC00694NumberOfDistinctIslands {
             for (int j = 0; j < cols; j++) {
                 if (!visited[i][j] && grid[i][j] == 1) {
                     StringBuilder path = new StringBuilder();
-                    //dfs(path, i, j, grid, visited, 's');
-                    bfs(path, i, j, grid, visited);
+                    dfs(path, i, j, grid, visited, 's');
+                    //bfs(path, i, j, grid, visited);
                     result.add(path.toString());
                 }
             }

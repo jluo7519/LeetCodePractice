@@ -33,17 +33,12 @@ public class LC00320GeneralizedAbbreviation {
 
         //2. not compress
         //depending on current count
-        if (count == 0) {
-            //大胆append
-            path.append(word.charAt(index));
-            dfs(result, path, index + 1, word, 0);
-            path.setLength(pathLen);
-        } else {
-            //如果count不是0，那就要先把之前累计count给处理掉(append上)再append当前char
-            path.append(count).append(word.charAt(index));
-            dfs(result, path, index + 1, word, 0);
-            path.setLength(pathLen);
+        if (count > 0) { //有count先append count
+            path.append(count);
         }
+        path.append(word.charAt(index));
+        dfs(result, path, index + 1, word, 0);
+        path.setLength(pathLen);
 
         //based on whether count is 0, two branches for each
 /*        if (count == 0) {
