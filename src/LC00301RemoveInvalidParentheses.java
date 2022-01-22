@@ -31,6 +31,7 @@ public class LC00301RemoveInvalidParentheses {
         //return new ArrayList<>(result);
         return result;
     }
+    //S2
     private void dfsWithDedup(List<String> result, StringBuilder sb, int index, int rmLeft, int rmRight, String s, int delta) {
         int len = s.length();
         //success
@@ -76,6 +77,7 @@ public class LC00301RemoveInvalidParentheses {
             sb.setLength(sbLen);
         }
     }
+    //S1
     private void dfsSetDedup(Set<String> result, StringBuilder path, int index, int rmLeft, int rmRight, String s, int delta) {
         int len = s.length();
         //success
