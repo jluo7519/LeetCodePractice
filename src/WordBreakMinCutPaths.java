@@ -1,9 +1,9 @@
 import java.util.*;
 
-public class LC0013900140WordBreakAndFollowUps {
+public class WordBreakMinCutPaths {
     static final int UNCUTTABLE = Integer.MAX_VALUE;
     public static void main(String args[]) {
-        LC0013900140WordBreakAndFollowUps test = new LC0013900140WordBreakAndFollowUps();
+        WordBreakMinCutPaths test = new WordBreakMinCutPaths();
         //test 1
         String s1 = "leetcode";
         Set<String> dict1 = new HashSet<>();
