@@ -2,12 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LC00320GeneralizedAbbreviation {
-    public static void main(String args[]) {
-        LC00320GeneralizedAbbreviation test = new LC00320GeneralizedAbbreviation();
-        String s1 = "word";
-        System.out.println(test.generateAbbreviations(s1).toString());
-    }
-
     public List<String> generateAbbreviations(String word) {
         if (word == null || word.length() == 0) throw new IllegalArgumentException();
         List<String> result = new ArrayList<>();
@@ -63,5 +57,9 @@ public class LC00320GeneralizedAbbreviation {
             dfs(result, path, index + 1, word, count + 1);
         }*/
     }
-
+    public static void main(String args[]) {
+        LC00320GeneralizedAbbreviation test = new LC00320GeneralizedAbbreviation();
+        String s1 = "word";
+        System.out.println(test.generateAbbreviations(s1).toString());
+    }
 }

@@ -1,10 +1,6 @@
 import java.util.*;
 
 public class TwoCups {
-    public static void main(String args[]) {
-        TwoCups test = new TwoCups();
-        System.out.println(test.twoCups(5,2,4));
-    }
     //Q: given two cups of different size, can you measure n units of water? return min steps, if impossible return -1
     public int twoCups(int big, int small, int target) {
         if (target > big + small) return -1;
@@ -60,5 +56,9 @@ public class TwoCups {
             nexts.add(new int[] {one, Math.max(0, cur[1] - (one - cur[0]))});
         }
         return nexts;
+    }
+    public static void main(String args[]) {
+        TwoCups test = new TwoCups();
+        System.out.println(test.twoCups(5,2,4));
     }
 }

@@ -4,25 +4,6 @@ import java.util.Set;
 
 public class LC00301FollowUpReturnAnyValidWithMinRemoval {
     //Any Valid Parentheses Sequence with min removal
-    public static void main(String args[]) {
-        LC00301FollowUpReturnAnyValidWithMinRemoval test = new LC00301FollowUpReturnAnyValidWithMinRemoval();
-        String s1 = "()())()";
-        String s2 = "(a)())()";
-        String s3 = ")(";
-        String s4 = "(j))(";
-
-        System.out.println("Test Case 1: ");
-        System.out.println(test.anyWithMinRemoval(s1));
-
-        System.out.println("Test Case 2: ");
-        System.out.println(test.anyWithMinRemoval(s2));
-
-        System.out.println("Test Case 3: ");
-        System.out.println(test.anyWithMinRemoval(s3));
-
-        System.out.println("Test Case 4: ");
-        System.out.println(test.anyWithMinRemoval(s4));
-    }
     public String anyWithMinRemoval(String s) {
         Set<Integer> rmIndex = new HashSet<>();
         int len = s.length();
@@ -66,5 +47,24 @@ public class LC00301FollowUpReturnAnyValidWithMinRemoval {
             }
         }
         return sb.toString();
+    }
+    public static void main(String args[]) {
+        LC00301FollowUpReturnAnyValidWithMinRemoval test = new LC00301FollowUpReturnAnyValidWithMinRemoval();
+        String s1 = "()())()";
+        String s2 = "(a)())()";
+        String s3 = ")(";
+        String s4 = "(j))(";
+
+        System.out.println("Test Case 1: ");
+        System.out.println(test.anyWithMinRemoval(s1));
+
+        System.out.println("Test Case 2: ");
+        System.out.println(test.anyWithMinRemoval(s2));
+
+        System.out.println("Test Case 3: ");
+        System.out.println(test.anyWithMinRemoval(s3));
+
+        System.out.println("Test Case 4: ");
+        System.out.println(test.anyWithMinRemoval(s4));
     }
 }

@@ -2,16 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LC00093RestoreIpAddresses {
-    public static void main(String args[]) {
-        LC00093RestoreIpAddresses test = new LC00093RestoreIpAddresses();
-        String s1 = "25525511135";
-        System.out.println(test.restoreIpAddresses(s1).toString());
-        String s2 = "0000";
-        System.out.println(test.restoreIpAddresses(s2).toString());
-        String s3 = "101023";
-        System.out.println(test.restoreIpAddresses(s3).toString());
-    }
-
     public List<String> restoreIpAddresses(String s) {
         if (s == null || s.length() < 4) {//throw new IllegalArgumentException("not valid input");
             return new ArrayList<>();
@@ -45,5 +35,15 @@ public class LC00093RestoreIpAddresses {
             path.setLength(pathLen);
             if (val == 0) break; //if value is zero, need to prevent leading zero
         }
+    }
+
+    public static void main(String args[]) {
+        LC00093RestoreIpAddresses test = new LC00093RestoreIpAddresses();
+        String s1 = "25525511135";
+        System.out.println(test.restoreIpAddresses(s1).toString());
+        String s2 = "0000";
+        System.out.println(test.restoreIpAddresses(s2).toString());
+        String s3 = "101023";
+        System.out.println(test.restoreIpAddresses(s3).toString());
     }
 }

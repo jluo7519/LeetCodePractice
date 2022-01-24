@@ -2,55 +2,6 @@ import java.util.*;
 
 public class WordBreakMinCutPaths {
     static final int UNCUTTABLE = Integer.MAX_VALUE;
-    public static void main(String args[]) {
-        WordBreakMinCutPaths test = new WordBreakMinCutPaths();
-        //test 1
-        String s1 = "leetcode";
-        Set<String> dict1 = new HashSet<>();
-        dict1.add("leet");
-        dict1.add("code");
-        Map<Integer, List<Integer>> edge1 = new HashMap<>();
-        test.wordBreakII(s1, dict1, edge1);
-
-        //System.out.println(test.recoverOnePointFive(edge1, s1));
-        System.out.println(edge1.toString());
-
-        //test 2
-        String s2 = "applepenapple";
-        Set<String> dict2 = new HashSet<>();
-        dict2.add("apple");
-        dict2.add("pen");;
-        Map<Integer, List<Integer>> edge2 = new HashMap<>();
-        test.wordBreakII(s2, dict2, edge2);
-        System.out.println(edge2.toString());
-        //System.out.println(test.recoverOnePointFive(edge2, s2));
-        //System.out.println(test.wordBreak(s2, dict2));
-
-        String s3 = "catsandog";
-        Set<String> dict3 = new HashSet<>();
-        dict3.add("cats");
-        dict3.add("dog");;
-        dict3.add("sand");
-        dict3.add("and");
-        dict3.add("cat");
-        Map<Integer, Integer> edge3 = new HashMap<>();
-        //test.wordBreakOnePointFive(s3, dict3, edge3);
-        //System.out.println(test.recoverOnePointFive(edge3, s3));
-        //System.out.println(test.wordBreak(s3, dict3));
-
-
-        //test 4
-        String s4 = "catsanddog";
-        Set<String> dict4 = new HashSet<>();
-        dict4.add("cats");
-        dict4.add("dog");;
-        dict4.add("sand");
-        dict4.add("and");
-        dict4.add("cat");
-        Map<Integer, List<Integer>> edge4 = new HashMap<>();
-        System.out.println(test.wordBreakII(s4, dict4, edge4));
-        System.out.println(edge4.toString());
-    }
     //Q1. return min number of cuts
     public int wordBreak(String s, Set<String> dict) {
         if (s == null || s.length() == 0) return -1;
@@ -153,5 +104,54 @@ public class WordBreakMinCutPaths {
             recoverII(edges, s, result, path, n);
             path.remove(0);
         }
+    }
+    public static void main(String args[]) {
+        WordBreakMinCutPaths test = new WordBreakMinCutPaths();
+        //test 1
+        String s1 = "leetcode";
+        Set<String> dict1 = new HashSet<>();
+        dict1.add("leet");
+        dict1.add("code");
+        Map<Integer, List<Integer>> edge1 = new HashMap<>();
+        test.wordBreakII(s1, dict1, edge1);
+
+        //System.out.println(test.recoverOnePointFive(edge1, s1));
+        System.out.println(edge1.toString());
+
+        //test 2
+        String s2 = "applepenapple";
+        Set<String> dict2 = new HashSet<>();
+        dict2.add("apple");
+        dict2.add("pen");;
+        Map<Integer, List<Integer>> edge2 = new HashMap<>();
+        test.wordBreakII(s2, dict2, edge2);
+        System.out.println(edge2.toString());
+        //System.out.println(test.recoverOnePointFive(edge2, s2));
+        //System.out.println(test.wordBreak(s2, dict2));
+
+        String s3 = "catsandog";
+        Set<String> dict3 = new HashSet<>();
+        dict3.add("cats");
+        dict3.add("dog");;
+        dict3.add("sand");
+        dict3.add("and");
+        dict3.add("cat");
+        Map<Integer, Integer> edge3 = new HashMap<>();
+        //test.wordBreakOnePointFive(s3, dict3, edge3);
+        //System.out.println(test.recoverOnePointFive(edge3, s3));
+        //System.out.println(test.wordBreak(s3, dict3));
+
+
+        //test 4
+        String s4 = "catsanddog";
+        Set<String> dict4 = new HashSet<>();
+        dict4.add("cats");
+        dict4.add("dog");;
+        dict4.add("sand");
+        dict4.add("and");
+        dict4.add("cat");
+        Map<Integer, List<Integer>> edge4 = new HashMap<>();
+        System.out.println(test.wordBreakII(s4, dict4, edge4));
+        System.out.println(edge4.toString());
     }
 }

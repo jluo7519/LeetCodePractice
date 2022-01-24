@@ -4,19 +4,6 @@ import java.util.List;
 import java.util.Queue;
 
 public class LC00695MaxAreaOfIsland {
-    public static void main(String args[]) {
-        LC00695MaxAreaOfIsland test = new LC00695MaxAreaOfIsland();
-        int[][] grid1 = {
-                {0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
-                {0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
-                {0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0}};
-        System.out.println(test.maxAreaOfIsland(grid1));
-    }
     public int maxAreaOfIsland(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
             throw new IllegalArgumentException();
@@ -79,5 +66,18 @@ public class LC00695MaxAreaOfIsland {
             }
         }
         return nexts;
+    }
+    public static void main(String args[]) {
+        LC00695MaxAreaOfIsland test = new LC00695MaxAreaOfIsland();
+        int[][] grid1 = {
+                {0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
+                {0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0}};
+        System.out.println(test.maxAreaOfIsland(grid1));
     }
 }

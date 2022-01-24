@@ -1,41 +1,6 @@
 import java.util.*;
 
 public class WordBreakMinNumOfCuts {
-    public static void main(String args[]) {
-        WordBreakMinNumOfCuts test = new WordBreakMinNumOfCuts();
-        //test 1
-        String s1 = "leetcode";
-        Set<String> dict1 = new HashSet<>();
-        dict1.add("leet");
-        dict1.add("code");
-        System.out.println(test.minNumCutsDFS(s1, dict1));
-
-        //test 2
-        String s2 = "applepenapple";
-        Set<String> dict2 = new HashSet<>();
-        dict2.add("apple");
-        dict2.add("pen");;
-        System.out.println(test.minNumCutsDFS(s2, dict2));
-
-        String s3 = "catsandog";
-        Set<String> dict3 = new HashSet<>();
-        dict3.add("cats");
-        dict3.add("dog");;
-        dict3.add("sand");
-        dict3.add("and");
-        dict3.add("cat");
-        System.out.println(test.minNumCutsDFS(s3, dict3));
-
-        //test 4
-        String s4 = "catsanddog";
-        Set<String> dict4 = new HashSet<>();
-        dict4.add("cats");
-        dict4.add("dog");;
-        dict4.add("sand");
-        dict4.add("and");
-        dict4.add("cat");
-        System.out.println(test.minNumCutsDFS(s4, dict4));
-    }
     //S1: DP
     public int minNumCutsDP(String s, Set<String> dict) {
         if (s == null || s.length() == 0 || dict == null || dict.size() == 0) throw new IllegalArgumentException();
@@ -99,5 +64,41 @@ public class WordBreakMinNumOfCuts {
             }
         }
         return curMin;
+    }
+
+    public static void main(String args[]) {
+        WordBreakMinNumOfCuts test = new WordBreakMinNumOfCuts();
+        //test 1
+        String s1 = "leetcode";
+        Set<String> dict1 = new HashSet<>();
+        dict1.add("leet");
+        dict1.add("code");
+        System.out.println(test.minNumCutsDFS(s1, dict1));
+
+        //test 2
+        String s2 = "applepenapple";
+        Set<String> dict2 = new HashSet<>();
+        dict2.add("apple");
+        dict2.add("pen");;
+        System.out.println(test.minNumCutsDFS(s2, dict2));
+
+        String s3 = "catsandog";
+        Set<String> dict3 = new HashSet<>();
+        dict3.add("cats");
+        dict3.add("dog");;
+        dict3.add("sand");
+        dict3.add("and");
+        dict3.add("cat");
+        System.out.println(test.minNumCutsDFS(s3, dict3));
+
+        //test 4
+        String s4 = "catsanddog";
+        Set<String> dict4 = new HashSet<>();
+        dict4.add("cats");
+        dict4.add("dog");;
+        dict4.add("sand");
+        dict4.add("and");
+        dict4.add("cat");
+        System.out.println(test.minNumCutsDFS(s4, dict4));
     }
 }

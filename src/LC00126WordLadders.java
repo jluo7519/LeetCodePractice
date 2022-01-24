@@ -1,18 +1,6 @@
 import java.util.*;
 
 class LC00126WordLadders {
-    public static void main(String args[]) {
-        LC00126WordLadders test = new LC00126WordLadders();
-
-        String beginWord = "a";
-        String endWord = "c";
-        String[] wordArray = {"a","b","c"};
-        List<String> wordList = Arrays.asList(wordArray);
-        List<List<String>> result = test.findLadders(beginWord, endWord, wordList);
-        for (List<String> list : result) {
-            System.out.println(list.toString());
-        }
-    }
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         //cc
         List<List<String>> result = new ArrayList<>();
@@ -167,6 +155,19 @@ class LC00126WordLadders {
             path.add(s);
             recoverPath1(s, endWord, graph, path, result);
             path.remove(path.size() - 1);
+        }
+    }
+
+    public static void main(String args[]) {
+        LC00126WordLadders test = new LC00126WordLadders();
+
+        String beginWord = "a";
+        String endWord = "c";
+        String[] wordArray = {"a","b","c"};
+        List<String> wordList = Arrays.asList(wordArray);
+        List<List<String>> result = test.findLadders(beginWord, endWord, wordList);
+        for (List<String> list : result) {
+            System.out.println(list.toString());
         }
     }
 }

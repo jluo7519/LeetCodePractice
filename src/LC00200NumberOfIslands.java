@@ -4,22 +4,6 @@ import java.util.List;
 import java.util.Queue;
 
 public class LC00200NumberOfIslands {
-    public static void main(String args[]) {
-        LC00200NumberOfIslands test = new LC00200NumberOfIslands();
-        char[][] grid1 = {
-                {'1','1','1','1','0'},
-                {'1','1','0','1','0'},
-                {'1','1','0','0','0'},
-                {'0','0','0','0','0'}};
-        System.out.println(test.numIslands(grid1));
-
-        char[][] grid2 = {
-                {'1','1','0','0','0'},
-                {'1','1','0','0','0'},
-                {'0','0','1','0','0'},
-                {'0','0','0','1','1'}};
-        System.out.println(test.numIslands(grid2));
-    }
     public int numIslands(char[][] grid) {
         //cc
         if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
@@ -88,5 +72,22 @@ public class LC00200NumberOfIslands {
             nexts.add(new int[]{cur[0] + dir[0], cur[1] + dir[1]});
         }
         return nexts;
+    }
+
+    public static void main(String args[]) {
+        LC00200NumberOfIslands test = new LC00200NumberOfIslands();
+        char[][] grid1 = {
+                {'1','1','1','1','0'},
+                {'1','1','0','1','0'},
+                {'1','1','0','0','0'},
+                {'0','0','0','0','0'}};
+        System.out.println(test.numIslands(grid1));
+
+        char[][] grid2 = {
+                {'1','1','0','0','0'},
+                {'1','1','0','0','0'},
+                {'0','0','1','0','0'},
+                {'0','0','0','1','1'}};
+        System.out.println(test.numIslands(grid2));
     }
 }

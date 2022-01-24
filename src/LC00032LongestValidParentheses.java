@@ -1,12 +1,6 @@
 import java.util.Stack;
 
 public class LC00032LongestValidParentheses {
-    public static void main(String args[]) {
-        String s = "()(()";
-        LC00032LongestValidParentheses test = new LC00032LongestValidParentheses();
-        System.out.println(test.longestValidParentheses1(s));
-
-    }
     public int longestValidParentheses1(String s) { //two pass, left to right, right to left
         int len = s.length();
         int l = 0;
@@ -64,5 +58,11 @@ public class LC00032LongestValidParentheses {
             }
         }
         return globalMax;
+    }
+
+    public static void main(String args[]) {
+        String s = "()(()";
+        LC00032LongestValidParentheses test = new LC00032LongestValidParentheses();
+        System.out.println(test.longestValidParentheses1(s));
     }
 }

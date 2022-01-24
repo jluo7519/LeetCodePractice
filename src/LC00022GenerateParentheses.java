@@ -2,11 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LC00022GenerateParentheses {
-    public static void main(String args[]) {
-        LC00022GenerateParentheses test = new LC00022GenerateParentheses();
-        System.out.println(test.generateParenthesis(3).toString());
-    }
-
     public List<String> generateParenthesis(int n) {
         if (n <= 0) return null;
         List<String> result = new ArrayList<>();
@@ -35,5 +30,10 @@ public class LC00022GenerateParentheses {
             dfs(n, index + 1, l, r + 1, sb, result);
             sb.setLength(sb.length() - 1);
         }
+    }
+
+    public static void main(String args[]) {
+        LC00022GenerateParentheses test = new LC00022GenerateParentheses();
+        System.out.println(test.generateParenthesis(3).toString());
     }
 }

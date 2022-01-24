@@ -1,12 +1,6 @@
 import java.util.Arrays;
 
 public class LC00322CoinChange {
-    public static void main(String args[]) {
-        int[] coins = {2,5,10,1};
-        LC00322CoinChange test = new LC00322CoinChange();
-        System.out.println(test.coinChange(coins, 27));
-
-    }
     public int coinChange(int[] coins, int amount) {
         int[] memo = new int[amount + 1];
         Arrays.fill(memo, -1);
@@ -24,5 +18,11 @@ public class LC00322CoinChange {
             }
         }
         return memo[amount];
+    }
+    public static void main(String args[]) {
+        int[] coins = {2,5,10,1};
+        LC00322CoinChange test = new LC00322CoinChange();
+        System.out.println(test.coinChange(coins, 27));
+
     }
 }

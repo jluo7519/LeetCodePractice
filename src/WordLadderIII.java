@@ -2,18 +2,6 @@ import javax.sound.midi.SysexMessage;
 import java.util.*;
 
 public class WordLadderIII {
-    public static void main(String args[]) {
-        String begin = "a";
-        String end = "c";
-        String[] wordArray = {"a","b","c"};
-        Set<String> dict = new HashSet<>();
-        for (String s: wordArray) {
-            dict.add(s);
-        }
-        WordLadderIII test = new WordLadderIII();
-        List<String> result = test.findShortestPath(begin, end, dict);
-        System.out.println(result.toString());
-    }
     public List<String> findShortestPath(String beginWord, String endWord, Set<String> dict) {
         //cc
         List<String> result = new LinkedList<>();
@@ -57,6 +45,19 @@ public class WordLadderIII {
                 }
             }
         }
-        //TODO: exception
+        throw new RuntimeException("there is no word ladders");
+    }
+
+    public static void main(String args[]) {
+        String begin = "a";
+        String end = "c";
+        String[] wordArray = {"a","b","c"};
+        Set<String> dict = new HashSet<>();
+        for (String s: wordArray) {
+            dict.add(s);
+        }
+        WordLadderIII test = new WordLadderIII();
+        List<String> result = test.findShortestPath(begin, end, dict);
+        System.out.println(result.toString());
     }
 }

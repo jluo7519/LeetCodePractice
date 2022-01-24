@@ -6,17 +6,6 @@ import java.util.Set;
 public class LC00282AddOperators {
     LC00227BasicCalculatorII calculator = new LC00227BasicCalculatorII();
 
-    public static void main(String args[]) {
-        LC00282AddOperators test = new LC00282AddOperators();
-        System.out.println(test.addOperators("123", 6));
-        System.out.println(test.addOperators("232", 8));
-        System.out.println(test.addOperators("3456237490", 9191));
-        System.out.println(test.addOperators("105", 5));
-        System.out.println(test.addOperators("00", 0));
-        System.out.println(test.addOperators("000", 0));
-        System.out.println(test.addOperators("2147483648", -2147483648));
-
-    }
     public List<String> addOperators(String num, int target) {
         List<String> result = new ArrayList<>();
         Set<String> set = new HashSet<>();
@@ -143,4 +132,14 @@ public class LC00282AddOperators {
             if (val == 0) break;
         }
     }*/
+  public static void main(String args[]) {
+      LC00282AddOperators test = new LC00282AddOperators();
+      System.out.println(test.addOperators("123", 6));
+      System.out.println(test.addOperators("232", 8));
+      System.out.println(test.addOperators("3456237490", 9191));
+      System.out.println(test.addOperators("105", 5));
+      System.out.println(test.addOperators("00", 0));
+      System.out.println(test.addOperators("000", 0));
+      System.out.println(test.addOperators("2147483648", -2147483648));
+  }
 }

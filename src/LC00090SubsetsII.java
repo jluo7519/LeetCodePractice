@@ -3,13 +3,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LC00090SubsetsII {
-    public static void main(String args[]) {
-        LC00090SubsetsII test = new LC00090SubsetsII();
-        int[] nums1 = {1, 2, 2};
-        System.out.println(test.subsetsWithDups(nums1).toString());
-        int[] nums2 = {0};
-        System.out.println(test.subsetsWithDups(nums2).toString());
-    }
     public List<List<Integer>> subsetsWithDups(int[] nums) {
         //cc
         if (nums == null || nums.length == 0) throw new IllegalArgumentException();
@@ -53,5 +46,11 @@ public class LC00090SubsetsII {
         dfs2(result, path, index + 1, nums);
         path.remove(path.size() - 1);
     }
-
+    public static void main(String args[]) {
+        LC00090SubsetsII test = new LC00090SubsetsII();
+        int[] nums1 = {1, 2, 2};
+        System.out.println(test.subsetsWithDups(nums1).toString());
+        int[] nums2 = {0};
+        System.out.println(test.subsetsWithDups(nums2).toString());
+    }
 }

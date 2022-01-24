@@ -1,17 +1,4 @@
 public class LC00010RegularExpressionMatching {
-    public static void main(String args[]) {
-        LC00010RegularExpressionMatching test = new LC00010RegularExpressionMatching();
-        String s1 = "aa", p1 = "a";
-        System.out.println("Test 1: " + test.isMatch(s1, p1));
-        String s2 = "aa", p2 = "a*";
-        System.out.println("Test 2: " + test.isMatch(s2, p2));
-        String s3 = "ab", p3 = ".*";
-        System.out.println("Test 3: " + test.isMatch(s3, p3));
-        String s4 = "a", p4 = ".*..a*";
-        System.out.println("Test 3: " + test.isMatch(s4, p4));
-        String s5 = "a", p5 = "ab*";
-        System.out.println("Test 3: " + test.isMatch(s5, p5));
-    }
     public boolean isMatch(String s, String p) {
         if (s == null || p == null) throw new IllegalArgumentException();
         Boolean[][] memo = new Boolean[s.length() + 1][p.length() + 1];
@@ -75,5 +62,19 @@ public class LC00010RegularExpressionMatching {
             }
             return false;
         }
+    }
+
+    public static void main(String args[]) {
+        LC00010RegularExpressionMatching test = new LC00010RegularExpressionMatching();
+        String s1 = "aa", p1 = "a";
+        System.out.println("Test 1: " + test.isMatch(s1, p1));
+        String s2 = "aa", p2 = "a*";
+        System.out.println("Test 2: " + test.isMatch(s2, p2));
+        String s3 = "ab", p3 = ".*";
+        System.out.println("Test 3: " + test.isMatch(s3, p3));
+        String s4 = "a", p4 = ".*..a*";
+        System.out.println("Test 3: " + test.isMatch(s4, p4));
+        String s5 = "a", p5 = "ab*";
+        System.out.println("Test 3: " + test.isMatch(s5, p5));
     }
 }

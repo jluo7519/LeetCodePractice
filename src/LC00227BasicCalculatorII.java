@@ -1,12 +1,4 @@
 public class LC00227BasicCalculatorII {
-    public static void main(String args[]) {
-        LC00227BasicCalculatorII test = new LC00227BasicCalculatorII();
-        //System.out.println(test.addAndSubstract("3 - 1+2 + 2 +2 +1+1"));
-        System.out.println(test.calculate("3 + 5*2 + 2 *2 +1+1"));
-        System.out.println(test.calculate("3+5 / 2"));
-        System.out.println(test.calculate("3/2"));
-        System.out.println(test.calculate("3+2*2"));
-    }
     public int calculate(String s) {
         int sLen = s.length();
         int result = 0;
@@ -86,6 +78,15 @@ public class LC00227BasicCalculatorII {
             }
         }
         return result;
+    }
+
+    public static void main(String args[]) {
+        LC00227BasicCalculatorII test = new LC00227BasicCalculatorII();
+        //System.out.println(test.addAndSubstract("3 - 1+2 + 2 +2 +1+1"));
+        System.out.println(test.calculate("3 + 5*2 + 2 *2 +1+1"));
+        System.out.println(test.calculate("3+5 / 2"));
+        System.out.println(test.calculate("3/2"));
+        System.out.println(test.calculate("3+2*2"));
     }
 }
 //3 + 1 * 2 + 2 + 2 + 1 + 1

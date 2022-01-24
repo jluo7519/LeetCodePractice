@@ -1,8 +1,4 @@
 public class LC00044WildCardMatching {
-    public static void main(String args[]) {
-        LC00044WildCardMatching test = new LC00044WildCardMatching();
-        //代码太丑陋跑赢leetcode 7%
-    }
     public boolean isMatch(String s, String p) {
         if (s == null || p == null) throw new IllegalArgumentException();
         if (p.length() == 0) return s.length() == 0;
@@ -45,5 +41,10 @@ public class LC00044WildCardMatching {
             m[indexS][indexP] = false;
         }
         return m[indexS][indexP];
+    }
+
+    public static void main(String args[]) {
+        LC00044WildCardMatching test = new LC00044WildCardMatching();
+        //代码太丑陋跑赢leetcode 7%
     }
 }

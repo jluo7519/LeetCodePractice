@@ -2,6 +2,28 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class WordBreakNoReuse {
+    public boolean wordBreak(String s, Set<String> dict) {
+        if (s == null || s.length() == 0 || dict == null || dict.size() == 0) throw new IllegalArgumentException();
+        return dfs(s, 0, dict);
+    }
+    private boolean dfs(String s, int index, Set<String> dict) {
+        int len = s.length();
+        if (index == len) {
+            return true;
+        }
+        //visited
+        //branching
+        for (int i = index; i < len; i++) {
+            String substr = s.substring(index, i + 1);
+            if (dict.remove(substr)) {
+                if (dfs(s, i + 1, dict)) {
+                    return true;
+                }
+                dict.add(substr);
+            }
+        }
+        return false;
+    }
     public static void main(String args[]) {
         WordBreakNoReuse test = new WordBreakNoReuse();
         //test 1
@@ -36,27 +58,5 @@ public class WordBreakNoReuse {
         dict4.add("and");
         dict4.add("cat");
         System.out.println(test.wordBreak(s4, dict4));
-    }
-    public boolean wordBreak(String s, Set<String> dict) {
-        if (s == null || s.length() == 0 || dict == null || dict.size() == 0) throw new IllegalArgumentException();
-        return dfs(s, 0, dict);
-    }
-    private boolean dfs(String s, int index, Set<String> dict) {
-        int len = s.length();
-        if (index == len) {
-            return true;
-        }
-        //visited
-        //branching
-        for (int i = index; i < len; i++) {
-            String substr = s.substring(index, i + 1);
-            if (dict.remove(substr)) {
-                if (dfs(s, i + 1, dict)) {
-                    return true;
-                }
-                dict.add(substr);
-            }
-        }
-        return false;
     }
 }

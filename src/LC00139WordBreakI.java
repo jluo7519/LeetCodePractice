@@ -4,16 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 public class LC00139WordBreakI {
-
-    public static void main(String args[]) {
-        LC00139WordBreakI test = new LC00139WordBreakI();
-        String s = "leetcode";
-
-        String[] wordsArr = {"leet","code"};
-        List<String> wordDict = Arrays.asList(wordsArr);
-        System.out.println(test.wordBreakDFS(s, wordDict));
-
-    }
     //S1 dp
     public boolean wordBreak(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) return false;
@@ -59,5 +49,15 @@ public class LC00139WordBreakI {
         }
         mem[index] = false;
         return false;
+    }
+
+    public static void main(String args[]) {
+        LC00139WordBreakI test = new LC00139WordBreakI();
+        String s = "leetcode";
+
+        String[] wordsArr = {"leet","code"};
+        List<String> wordDict = Arrays.asList(wordsArr);
+        System.out.println(test.wordBreakDFS(s, wordDict));
+
     }
 }

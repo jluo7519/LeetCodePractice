@@ -1,25 +1,6 @@
 import java.util.*;
 
 public class LC00301RemoveInvalidParentheses {
-    public static void main(String args[]) {
-        LC00301RemoveInvalidParentheses test = new LC00301RemoveInvalidParentheses();
-        String s1 = "()())()";
-        String s2 = "(a)())()";
-        String s3 = ")(";
-        System.out.println("Test Case 1: ");
-        System.out.println(Arrays.toString(test.findRemove(s1)));
-        System.out.println(test.removeInvalidParentheses(s1));
-        System.out.println("Test Case 2: ");
-        System.out.println(Arrays.toString(test.findRemove(s2)));
-        System.out.println(test.removeInvalidParentheses(s2));
-        System.out.println("Test Case 3: ");
-        System.out.println(Arrays.toString(test.findRemove(s3)));
-        System.out.println(test.removeInvalidParentheses(s3));
-        System.out.println("Test Case 3: ");
-        String s4 = "(j))(";
-        System.out.println(Arrays.toString(test.findRemove(s4)));
-        System.out.println(test.removeInvalidParentheses(s4));
-    }
     public List<String> removeInvalidParentheses(String s) {
         if (s == null || s.length() == 0) throw new IllegalArgumentException();
         //Set<String> result = new HashSet<>();
@@ -128,5 +109,24 @@ public class LC00301RemoveInvalidParentheses {
             }
         }
         return new int[] {left, right};
+    }
+    public static void main(String args[]) {
+        LC00301RemoveInvalidParentheses test = new LC00301RemoveInvalidParentheses();
+        String s1 = "()())()";
+        String s2 = "(a)())()";
+        String s3 = ")(";
+        System.out.println("Test Case 1: ");
+        System.out.println(Arrays.toString(test.findRemove(s1)));
+        System.out.println(test.removeInvalidParentheses(s1));
+        System.out.println("Test Case 2: ");
+        System.out.println(Arrays.toString(test.findRemove(s2)));
+        System.out.println(test.removeInvalidParentheses(s2));
+        System.out.println("Test Case 3: ");
+        System.out.println(Arrays.toString(test.findRemove(s3)));
+        System.out.println(test.removeInvalidParentheses(s3));
+        System.out.println("Test Case 3: ");
+        String s4 = "(j))(";
+        System.out.println(Arrays.toString(test.findRemove(s4)));
+        System.out.println(test.removeInvalidParentheses(s4));
     }
 }

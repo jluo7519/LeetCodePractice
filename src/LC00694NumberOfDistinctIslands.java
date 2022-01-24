@@ -1,33 +1,6 @@
 import java.util.*;
 
 public class LC00694NumberOfDistinctIslands {
-    public static void main(String args[]) {
-        LC00694NumberOfDistinctIslands test = new LC00694NumberOfDistinctIslands();
-
-        int[][] grid1 = {
-                {1,1,0,0,0},
-                {1,1,0,0,0},
-                {0,0,0,1,1},
-                {0,0,0,1,1}};
-        System.out.println(test.numDistinctIslands(grid1));
-
-        int[][] grid2 = {
-                {1,1,0,1,1},
-                {1,0,0,0,0},
-                {0,0,0,0,1},
-                {1,1,0,1,1}};
-        System.out.println(test.numDistinctIslands(grid2));
-
-        int[][] grid3 = {
-                {1,1,0},
-                {0,1,1},
-                {0,0,0},
-                {1,1,1},
-                {0,1,0}};
-        System.out.println(test.numDistinctIslands(grid3));
-
-    }
-
     public int numDistinctIslands(int[][] grid) {
         if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
             throw new IllegalArgumentException();
@@ -110,5 +83,31 @@ public class LC00694NumberOfDistinctIslands {
         int rows = grid.length;
         int cols = grid[0].length;
         return i >= 0 && i < rows && j >= 0 && j < cols && grid[i][j] == 1;
+    }
+
+    public static void main(String args[]) {
+        LC00694NumberOfDistinctIslands test = new LC00694NumberOfDistinctIslands();
+
+        int[][] grid1 = {
+                {1,1,0,0,0},
+                {1,1,0,0,0},
+                {0,0,0,1,1},
+                {0,0,0,1,1}};
+        System.out.println(test.numDistinctIslands(grid1));
+
+        int[][] grid2 = {
+                {1,1,0,1,1},
+                {1,0,0,0,0},
+                {0,0,0,0,1},
+                {1,1,0,1,1}};
+        System.out.println(test.numDistinctIslands(grid2));
+
+        int[][] grid3 = {
+                {1,1,0},
+                {0,1,1},
+                {0,0,0},
+                {1,1,1},
+                {0,1,0}};
+        System.out.println(test.numDistinctIslands(grid3));
     }
 }
