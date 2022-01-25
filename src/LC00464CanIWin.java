@@ -80,7 +80,7 @@ public class LC00464CanIWin {
                 + test.canIWin(10, 1));
         System.out.println("test 4: maxChoosableInteger = 10, desiredTotal = 40, return: "
                 + test.canIWin(10, 40));
-        System.out.println("test 5: maxChoosableInteger = 10, desiredTotal = 40, return: "
+        System.out.println("test 5: maxChoosableInteger = 10, desiredTotal = 50, return: "
                 + test.canIWin(5, 50));
     }
 }
