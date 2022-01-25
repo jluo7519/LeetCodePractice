@@ -29,7 +29,6 @@ public class LC00403FrogJump {
             return false;
         }
         //if (lastJump <= 0) return false;
-
         for (int i = lastJump - 1; i <= lastJump + 1; i++) {
             int nextPos = stones[index] + i;
             Integer nextIdx = distToIndex.get(nextPos);
