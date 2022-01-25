@@ -22,14 +22,6 @@ public class TaskOrder {
         return results;
     }
 
-//                                application A
-//                            /              \
-//                          mongo                application B
-//                        /       \            /      \
-//                      storage   xxx                (mongo)
-//                                                        \
-//                  storage.getDependsOn is empty        (storage)
-
     private static Set<String> noCircularDependency(Map<String, List<String>> graph) {
         int numTasks = graph.size();
         Map<String, Integer> incomingEdges = new HashMap<>();
@@ -159,3 +151,10 @@ class TaskList {
         return tasks;
     }
 }
+//                                application A
+//                            /              \
+//                          mongo                application B
+//                        /       \            /      \
+//                      storage   xxx                (mongo)
+//                                                        \
+//                  storage.getDependsOn is empty        (storage)
