@@ -28,7 +28,7 @@ public class LC00132PalindromePartitioningII {
         if (s == null || s.length() <= 0) throw new IllegalArgumentException();
         int len = s.length();
         //dp structure
-        int[]dp = new int[len + 1];
+        int[] dp = new int[len + 1];
 //        Arrays.fill(dp, Integer.MAX_VALUE);
 //        dp[len] = 0;
         boolean[][] isP= new boolean[len][len];//s[i, j] is palindrome
