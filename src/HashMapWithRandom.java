@@ -65,11 +65,12 @@ public class HashMapWithRandom<K, V> {
         HashMapWithRandom map = new HashMapWithRandom();
         System.out.println(map.put(2, 3));
         System.out.println(map.put(3, 3));
-        System.out.println(map.remove(3));
         System.out.println(map.put('a', 5));
         System.out.println(map.put('c', 5));
         System.out.println(map.put('b', 6));
         System.out.println(map.put(12, 22));
+        System.out.println(map.remove(12));
+
         System.out.println("random pick: ");
         System.out.println(map.random());
         System.out.println(map.random());
