@@ -59,5 +59,6 @@ public class LC00300LongestIncreasingSubsequence {
         System.out.println(test.lengthOfLIS(new int[]{4,10,4,3,8,9}));
         //System.out.println(test.findSmallestLargerThanTarget(Arrays.asList(1, 2, 4, 5, 7, 7, 8, 101), 9));
         //System.out.println(test.findSmallestLargerThanTarget(Arrays.asList(0,0,1,2,3,3), 3));
+        System.out.println(test.lengthOfLIS(new int[]{2, 1, 2, 5, 108, 107, 105, 33, 25, 0, 3, 109, 18}));
     }
 }
