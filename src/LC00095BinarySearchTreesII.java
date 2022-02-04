@@ -35,11 +35,11 @@ public class LC00095BinarySearchTreesII {
         LC00095BinarySearchTreesII test = new LC00095BinarySearchTreesII();
         List<TreeNode> res1 = test.generateTrees(3);
         for (TreeNode node : res1) {
-            System.out.println("[" + node.toString(node) + "]");
+            System.out.println("[" + node.toString() + "]");
         }
         List<TreeNode> res2 = test.generateTrees(1);
         for (TreeNode node : res2) {
-            System.out.println("[" + node.toString(node) + "]");
+            System.out.println("[" + node.toString() + "]");
         }
     }
 }

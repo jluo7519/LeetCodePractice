@@ -37,7 +37,7 @@ public class LC00894AllPossibleFullBinaryTrees {
         List<TreeNode> res1 = test.allPossibleFBT(7);
         List<TreeNode> res2 = test.allPossibleFBT(3);
         for (TreeNode node : res2) {
-            System.out.println(node.toString(node));
+            System.out.println(node.toString());
         }
 
     }

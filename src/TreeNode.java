@@ -1,3 +1,5 @@
+import sun.reflect.generics.tree.Tree;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -15,10 +17,10 @@ public class TreeNode {
         this.right = right;
     }
     //TODO: remove nulls after last non-null node
-    public String toString(TreeNode root) {
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        queue.offer(this);
         while (!queue.isEmpty()) {
             int size = queue.size();
             while (size-- > 0) {
@@ -36,6 +38,62 @@ public class TreeNode {
         return sb.toString();
     }
 
+    public static TreeNode construct(String data) {
+        if (data == null) return null;
+        String[] array = data.split(",");
+        Queue<TreeNode> queue = new LinkedList<>();
+        int index = 0;
+        if (array[index] == null || array[index] == "null") return null;
+        TreeNode root = new TreeNode(Integer.parseInt(array[index++]));
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.poll();
+            if (index < array.length) {
+                String left = array[index++];
+                if (!left.equals("null")) {
+                    cur.left = new TreeNode(Integer.parseInt(left));
+                    queue.offer(cur.left);
+                }
+            }
+
+            if (index < array.length) {
+                String right = array[index++];
+                if (!right.equals("null")) {
+                    cur.right = new TreeNode(Integer.parseInt(right));
+                    queue.offer(cur.right);
+                }
+            }
+        }
+        return root;
+    }
+    public static TreeNode construct(Integer[] array) {
+        if (array == null || array.length == 0) return null;
+        Queue<TreeNode> queue = new LinkedList<>();
+        int index = 0;
+        if (array[index] == null) return null;
+        TreeNode root = new TreeNode(array[index++]);
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.poll();
+            if (index < array.length) {
+                Integer left = array[index++];
+                if (left != null) {
+                    cur.left = new TreeNode(left);
+                    queue.offer(cur.left);
+                }
+            }
+
+            if (index < array.length) {
+                Integer right = array[index++];
+                if (right != null) {
+                    cur.right = new TreeNode(right);
+                    queue.offer(cur.right);
+                }
+            }
+        }
+        return root;
+    }
+
     public static void main(String args[]) {
         TreeNode root = new TreeNode(0);
         TreeNode left = new TreeNode(1);
@@ -45,6 +103,9 @@ public class TreeNode {
         root.right = right;
         right.right = rr;
 
-        System.out.println(root.toString(root));
+        System.out.println(root.toString());
+
+        TreeNode constructRoot = construct(new Integer[]{1,2,3,null,null,4,5});
+        System.out.println(constructRoot.toString());
     }
 }
