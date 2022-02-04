@@ -39,6 +39,5 @@ public class LC00894AllPossibleFullBinaryTrees {
         for (TreeNode node : res2) {
             System.out.println(node.toString());
         }
-
     }
 }
