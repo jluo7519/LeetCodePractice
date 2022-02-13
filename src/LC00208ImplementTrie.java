@@ -2,7 +2,7 @@ public class LC00208ImplementTrie {
     TrieNode root;
 
     public LC00208ImplementTrie() {
-        root = new TrieNode();
+        root = new TrieNode('\0');
     }
 
     public void insert(String word) {
