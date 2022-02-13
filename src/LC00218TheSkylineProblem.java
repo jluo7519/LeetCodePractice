@@ -1,7 +1,44 @@
 import java.util.*;
 
 public class LC00218TheSkylineProblem {
-    public List<List<Integer>> getSkyline(int[][] buildings) {
+    public List<List<Integer>> getSkyline(int[][] buildings) { // O(n log n)
+        // c.c.
+        List<Point> points = new ArrayList<>();
+        for (int i = 0; i < buildings.length; i++) { // O(n)
+            int[] b = buildings[i];
+            points.add(new Point(b[0], b[2], true, i));
+            points.add(new Point(b[1], b[2], false, i));
+        }
+        Collections.sort(points); // O(n log n)
+        List<List<Integer>> result = new ArrayList<>();
+        // BST stores index to avoid duplicate, input index
+        TreeSet<Integer> maxBST = new TreeSet<>((i1, i2) ->
+            buildings[i2][2] != buildings[i1][2] ? buildings[i2][2] - buildings[i1][2] : i1 - i2
+        );
+        for (Point point : points) { // O(n log n)
+            if (point.isStart) {
+                if (maxBST.isEmpty() || buildings[maxBST.first()][2] < point.h) {
+                    result.add(Arrays.asList(point.x, point.h));
+                }
+                //add
+                maxBST.add(point.idx); // O(log n)
+            } else { // isEnd
+                maxBST.remove(point.idx); // O(log n)
+                if (maxBST.isEmpty()) {
+                    result.add(Arrays.asList(point.x, 0));
+                } else if (buildings[maxBST.first()][2] < point.h) {
+                    result.add(Arrays.asList(point.x, buildings[maxBST.first()][2]));
+                }
+            }
+        }
+        return result;
+    }
+    public static void main(String args[]) {
+        LC00218TheSkylineProblem test = new LC00218TheSkylineProblem();
+        int[][] buildings1 = new int[][]{{0,2,3},{2,5,3}};
+        test.getSkyline(buildings1);
+    }
+    public List<List<Integer>> getSkylineS1(int[][] buildings) {
         if (buildings == null || buildings.length == 0 || buildings[0] == null || buildings[0].length != 3) {
             throw new IllegalArgumentException();
         }
@@ -35,11 +72,33 @@ public class LC00218TheSkylineProblem {
         }
         return result;
     }
-
-    public static void main(String args[]) {
-        LC00218TheSkylineProblem test = new LC00218TheSkylineProblem();
-        int[][] buildings1 = new int[][]{{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}};
-        test.getSkyline(buildings1);
+}
+class Point implements Comparable<Point> {
+    int x;
+    int h;
+    int idx;
+    boolean isStart;
+    public Point(int x, int h, boolean isStart, int idx) {
+        this.x = x;
+        this.h = h;
+        this.isStart = isStart;
+        this.idx = idx;
+    }
+    @Override
+    public int compareTo(Point that) {
+        if (this.x != that.x) {
+            return this.x - that.x;
+        }
+        // tie breaking
+        if (this.isStart && that.isStart) {
+            return that.h - this.h;
+        } else if (!this.isStart && !that.isStart) {
+            return this.h - that.h;
+        } else { // one start one end
+            // end taller than start: start first
+            // start taller than end: start first
+            return this.isStart ? -1 : 1;
+        }
     }
 }
 class BuildingPoint implements Comparable<BuildingPoint>{
