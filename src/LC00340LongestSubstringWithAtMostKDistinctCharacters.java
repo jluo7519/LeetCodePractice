@@ -6,7 +6,7 @@ public class LC00340LongestSubstringWithAtMostKDistinctCharacters {
         if (s == null) throw new IllegalArgumentException();
         if (k == 0) return 0;
         int len = s.length();
-        MyQueue queue = new MyQueue(k);
+        MyWindow queue = new MyWindow(k);
         int longest = 0;
         for (int fast = 0; fast < len; fast++) {
             char ch = s.charAt(fast);
@@ -46,11 +46,11 @@ public class LC00340LongestSubstringWithAtMostKDistinctCharacters {
         System.out.println(test.lengthOfLongestSubstringKDistinctS2("ab", 1));
     }
 }
-class MyQueue {
+class MyWindow {
     QueueNode head, tail;
     int capacity, start;
     Map<Character, QueueNode> map;
-    public MyQueue(int capacity) {
+    public MyWindow(int capacity) {
         this.capacity = capacity;
         map = new HashMap<>();
         head = new QueueNode('\0', 0);

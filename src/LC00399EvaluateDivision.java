@@ -57,8 +57,8 @@ class EvaluateDivisionUF {
             pVal *= cur.val; // 每次cur向上动，p实际上也在跟着升级
             cur = cur.parent;
         }
-        p.val = pVal;
-        p.parent = cur; // TODO: 得想想为什么
+        p.val = pVal; // TODO: 得想想为什么
+        p.parent = cur;
         return cur;
     }
     public boolean find(LetterV p, LetterV q) { // O(1)
