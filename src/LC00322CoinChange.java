@@ -24,8 +24,31 @@ public class LC00322CoinChange {
         LC00322CoinChange test = new LC00322CoinChange();
         System.out.println(test.coinChange(coins, 27));
     }
-
-    // DFS with Pruning
+    // DFS with pruning using array
+    public int coinChangeBETTER(int[] coins, int amount) {
+        // c.c.
+        Integer[] mem = new Integer[amount + 1];
+        int result = dfsBETTER(coins, amount, mem);
+        return  result == Integer.MAX_VALUE ? -1 : result;
+    }
+    private int dfsBETTER(int[] coins, int amount, Integer[] mem) {
+        if (mem[amount] != null) {
+            return mem[amount];
+        }
+        if (amount == 0) {
+            mem[amount] = 0;
+            return 0;
+        }
+        int min = Integer.MAX_VALUE;
+        for (int coin : coins) {
+            int nextAmt = amount - coin;
+            if (nextAmt < 0) continue;
+            min = Math.min(dfsBETTER(coins, nextAmt, mem), min);
+        }
+        mem[amount] = min == Integer.MAX_VALUE ? Integer.MAX_VALUE : min + 1;
+        return mem[amount];
+    }
+    // DFS with Pruning using HashMap
     public int coinChangeDFS(int[] coins, int amount) {
         // c.c
         Map<Integer, Integer> mem = new HashMap<>();
@@ -41,23 +64,15 @@ public class LC00322CoinChange {
             mem.put(amount, 0);
             return 0;
         }
-        // failure
-        if (amount < 0) {
-            mem.put(amount, Integer.MAX_VALUE);
-            return Integer.MAX_VALUE;
-        }
+
         int min = Integer.MAX_VALUE;
-        for (int i = 0; i < coins.length; i++) {
-            int ret = dfs(coins, amount - coins[i], mem);
-            if (ret != -1) {
-                min = Math.min(min, ret);
-            }
+        for (int coin : coins) {
+            int nextAmt = amount - coin;
+            if (nextAmt < 0) continue;
+            int ret = dfs(coins, nextAmt, mem);
+            min = Math.min(ret, min);
         }
-        if (min != Integer.MAX_VALUE) {
-            mem.put(amount, min + 1);
-        } else {
-            mem.put(amount, min);
-        }
+        mem.put(amount, min == Integer.MAX_VALUE ? Integer.MAX_VALUE : min + 1);
         return mem.get(amount);
     }
 }
