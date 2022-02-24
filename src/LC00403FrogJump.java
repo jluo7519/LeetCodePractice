@@ -6,7 +6,7 @@ public class LC00403FrogJump {
         if (stones == null || stones.length <= 0) throw new IllegalArgumentException();
         Map<Integer, Integer> distToIndex = new HashMap<>();
         Map<Integer, Boolean>[] mem = new HashMap[stones.length];
-        for (int i = 0; i < stones.length; i++) {
+        for (int i = 0; i < stones.length; i++) { // O(n)
             distToIndex.put(stones[i], i);
             mem[i] = new HashMap<>();
         }
@@ -14,6 +14,7 @@ public class LC00403FrogJump {
         return dfs(stones, 0, 0, distToIndex, mem);
     }
 
+    // n values to fill in mem, O(1) to fill each. O(n)
     private boolean dfs(int[] stones, int index, int lastJump, Map<Integer, Integer> distToIndex, Map<Integer, Boolean>[] mem) {
         Boolean res = mem[index].get(lastJump);
         if (res != null) {
@@ -29,7 +30,7 @@ public class LC00403FrogJump {
             return false;
         }
         //if (lastJump <= 0) return false;
-        for (int i = lastJump - 1; i <= lastJump + 1; i++) {
+        for (int i = lastJump - 1; i <= lastJump + 1; i++) { // O(1)
             int nextPos = stones[index] + i;
             Integer nextIdx = distToIndex.get(nextPos);
             if (nextIdx != null && (nextIdx > index)) {
