@@ -1,13 +1,12 @@
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class DedupIterator {
+public class DedupIterator { // Limitation: cannot handle null in list
     private Integer buffer;
-    private List<Integer> list;
     private Iterator<Integer> it;
     public DedupIterator(List<Integer> list) {
         this.buffer = null;
-        this.list = list;
         it = list.iterator();
     }
 
@@ -34,6 +33,24 @@ public class DedupIterator {
     }
 
     public boolean hasNext() {
-        return buffer == null && !it.hasNext();
+        return buffer != null || it.hasNext();
+    }
+
+    public static void main(String args[]) {
+        DedupIterator it1 = new DedupIterator(Arrays.asList(1,2,2,2,3,3,2,2,4));
+        while (it1.hasNext()) {
+            System.out.print("" + it1.next() + " ");
+        }
+        System.out.print(it1.hasNext() + "\n");
+        DedupIterator it2 = new DedupIterator(Arrays.asList(1,3,5,2,3,6,2,2,4));
+        while (it2.hasNext()) {
+            System.out.print("" + it2.next() + " ");
+        }
+        System.out.print(it2.hasNext() + "\n");
+        DedupIterator it3 = new DedupIterator(Arrays.asList(1,1,1,1,1,1));
+        while (it3.hasNext()) {
+            System.out.print("" + it3.next() + " ");
+        }
+        System.out.print(it3.hasNext() + "\n");
     }
 }
