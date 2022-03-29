@@ -37,7 +37,7 @@ public class LC00301RemoveInvalidParentheses {
             //1. remove
             dfsWithDedup(result, sb, index + 1, rmLeft - 1, rmRight, s, delta);
             //2. keep
-            //if there are k consective (, and we keep them all
+            //if there are k consecutive (, and we keep them all
             int cntLeft = 1;
             while (index + cntLeft < len && s.charAt(index + cntLeft) == '(') {
                 cntLeft++;

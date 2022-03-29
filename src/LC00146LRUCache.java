@@ -3,20 +3,20 @@ import java.util.Map;
 
 public class LC00146LRUCache {
     private final int capacity;
-    private Map<Integer, Node> map;
-    private Node leastRecent;
-    private Node mostRecent;
+    private Map<Integer, GraphNode> map;
+    private GraphNode leastRecent;
+    private GraphNode mostRecent;
 
     public LC00146LRUCache(int capacity) {
         this.capacity = capacity;
-        leastRecent = new Node(0, 0); //use dummy head and tail
-        mostRecent = new Node(0, 0);
+        leastRecent = new GraphNode(0, 0); //use dummy head and tail
+        mostRecent = new GraphNode(0, 0);
         leastRecent.next = mostRecent;
         mostRecent.prev = leastRecent;
         map = new HashMap<>(capacity);
     }
     public int get(int key) {
-        Node node = map.get(key);
+        GraphNode node = map.get(key);
         if (node == null) {
             return -1;
         }
@@ -27,14 +27,14 @@ public class LC00146LRUCache {
     public void put(int key, int value) {
         //1. exists: update value and move to most recent
         if (map.containsKey(key)) {
-            Node node = map.get(key);
+            GraphNode node = map.get(key);
             node.value = value;
             delete(node); //move to most recent
             append(node);
         } else {
             //2. new:
             //2.1 LRU full: kick least recent first
-            Node node = new Node(key, value);
+            GraphNode node = new GraphNode(key, value);
             if (map.size() == this.capacity) {
                 map.remove(leastRecent.next.key);
                 delete(leastRecent.next);
@@ -44,13 +44,13 @@ public class LC00146LRUCache {
         }
     }
     //helper method to move node to most recent end
-    public void append(Node node) {
+    public void append(GraphNode node) {
         mostRecent.prev.next = node;
         node.prev = mostRecent.prev;
         node.next = mostRecent;
         mostRecent.prev = node;
     }
-    public void delete(Node node) {
+    public void delete(GraphNode node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
@@ -68,13 +68,13 @@ public class LC00146LRUCache {
     }*/
 }
 
-class Node {
+class GraphNode {
     int key;
     int value;
-    Node prev;
-    Node next;
+    GraphNode prev;
+    GraphNode next;
 
-    Node(int key, int value) {
+    GraphNode(int key, int value) {
         this.key = key;
         this.value = value;
     }

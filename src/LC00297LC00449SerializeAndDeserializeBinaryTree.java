@@ -1,8 +1,7 @@
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class LC00297SerializeAndDeserializeBinaryTree {
+public class LC00297LC00449SerializeAndDeserializeBinaryTree {
     // BFS solution
     // pro: save space for null nodes in the end
     public String serialize(TreeNode root) {
@@ -92,7 +91,7 @@ public class LC00297SerializeAndDeserializeBinaryTree {
         return root;
     }
     public static void main(String args[]) {
-        LC00297SerializeAndDeserializeBinaryTree test = new LC00297SerializeAndDeserializeBinaryTree();
+        LC00297LC00449SerializeAndDeserializeBinaryTree test = new LC00297LC00449SerializeAndDeserializeBinaryTree();
         System.out.println(test.serialize(TreeNode.construct(new Integer[]{1,2,3,null,null,4,5})));
         System.out.println(test.serializeDFS(TreeNode.construct(new Integer[]{1,2,3,null,null,4,5})));
         TreeNode res = test.deserializeDFS("1,2,#,#,3,4,#,#,5,#,#");
