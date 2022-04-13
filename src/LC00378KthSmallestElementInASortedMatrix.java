@@ -42,4 +42,47 @@ public class LC00378KthSmallestElementInASortedMatrix {
         }
         throw new RuntimeException();
     }
+
+    public int kthSmallestS2(int[][] matrix, int k) {
+        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
+            throw new IllegalArgumentException();
+        }
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        // dijkstra
+        Queue<Cell> minHeap = new PriorityQueue<>();
+        minHeap.offer(new Cell(0, 0, matrix[0][0]));
+        Set<Integer> visited = new HashSet<>();
+        visited.add(0);
+        while (k-- > 0) {
+            Cell cur = minHeap.poll();
+            if (k == 0) return cur.val;
+            int i = cur.x;
+            int j = cur.y;
+
+            // right
+            if (j + 1 < cols && visited.add(i * cols + j + 1)) {
+                minHeap.offer(new Cell(i, j + 1, matrix[i][j + 1]));
+            }
+            // down
+            if (i + 1 < rows && visited.add((i + 1) * cols + j)) {
+                minHeap.offer(new Cell(i + 1, j, matrix[i + 1][j]));
+            }
+        }
+        throw new RuntimeException();
+    }
+    class Cell implements Comparable<Cell>{
+        int x;
+        int y;
+        int val;
+        public Cell(int x, int y, int val) {
+            this.x = x;
+            this.y = y;
+            this.val = val;
+        }
+        @Override
+        public int compareTo(Cell that) {
+            return this.val - that.val;
+        }
+    }
 }

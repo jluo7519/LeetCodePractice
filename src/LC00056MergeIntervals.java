@@ -4,6 +4,28 @@ import java.util.Collections;
 import java.util.List;
 
 public class LC00056MergeIntervals {
+    // 自己的 O(n log n) time
+    public int[][] mergeI(int[][] intervals) {
+        // cc
+        Arrays.sort(intervals, (a, b) -> (a[0] - b[0]));
+        List<int[]> list = new ArrayList<>();
+        list.add(intervals[0]);
+        for (int i = 1; i < intervals.length; i++) {
+            int[] last = list.get(list.size() - 1);
+            int[] cur = intervals[i];
+            if (cur[0] <= last[1]) { // merge
+                last[1] = Math.max(last[1], cur[1]);
+            } else { // add new interval
+                list.add(cur);
+            }
+        }
+        int[][] res = new int[list.size()][2];
+        for (int i = 0; i < list.size(); i++) {
+            res[i] = list.get(i);
+        }
+        return res;
+    }
+    // 算法哥的
     public int[][] merge(int[][] intervals) {
         if (intervals == null || intervals.length == 0 || intervals[0] == null || intervals[0].length == 0) {
             throw new IllegalArgumentException();

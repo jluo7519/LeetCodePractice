@@ -36,6 +36,7 @@ public class LC00146LRUCache {
             //2.1 LRU full: kick least recent first
             GraphNode node = new GraphNode(key, value);
             if (map.size() == this.capacity) {
+                // 注意先后顺序, 如果先remove node再删map会删错key
                 map.remove(leastRecent.next.key);
                 delete(leastRecent.next);
             }
